@@ -1,0 +1,15 @@
+
+
+.answers{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-around;
+}
+
+.answer{
+    border: 1px solid black;
+}
+
+.answer:hover{
+    border: 1px solid gold;
+}
