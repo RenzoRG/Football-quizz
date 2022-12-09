@@ -1,15 +1,38 @@
-
-
+.container{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+}
 .answers{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    gap: 1rem;
+    /*grid-template-columns: repeat(2, 1fr);*/
+    /*justify-content: space-around;*/
 }
 
 .answer{
     border: 1px solid black;
+    list-style: none;
+    width: 100%;
+    align-self: center;
+    height: 1.5em;
 }
 
 .answer:hover{
     border: 1px solid gold;
+}
+
+@media (min-width: 400px) {
+    .answers {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        width: 100%;
+        gap: 1rem;
+        align-self: center;
+    }
 }

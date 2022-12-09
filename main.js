@@ -2,7 +2,6 @@
 const answers = document.querySelectorAll('li')
 const message = document.querySelector('.message')
 //const spanValue = span.getAttribute('value')
-console.log(`${DB[0]}`)
 startGame()
 
 function startGame() {
