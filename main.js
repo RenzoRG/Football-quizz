@@ -1,39 +1,32 @@
 //import { DB} from "./database"
+const container = document.querySelector('.container')
 const answers = document.querySelectorAll('li')
 const message = document.querySelector('.message')
-//const spanValue = span.getAttribute('value')
+
 startGame()
 
 function startGame() {
     answers.forEach(answer => {
-        answer.addEventListener('click', handleClick)
+        answer.addEventListener('click', pickedChoice)
     })
 }
 
-function handleClick(e) {
+function pickedChoice(e) {
     const answer = e.target.innerText
-    const comparisonResult = answer == "Itálie" ? 'correct' : 'wrong'
-    message.innerHTML = comparisonResult
-    result()
-}
+    message.innerHTML = answer == "Itálie" ? 'correct' : 'wrong'
 
-function result() {
-    const restartButton = document.createElement('button')
-    const innerText = document.createTextNode('restart the game')
-
-    restartButton.appendChild(innerText)
-
-    const element = document.querySelector('.container')
-    element.appendChild(restartButton)
-
-    restartButton.addEventListener('click', restartGame)
-}
-
-function restartGame() {
-    const message = document.querySelector('.message')
-    const button = document.querySelector('button')
-    message.innerHTML = ''
-    button.remove()
+    let button = document.querySelector('button')
+    if(button == null) {
+        button = document.createElement('button')
+        const buttonText = document.createTextNode('restart the game')
+        button.appendChild(buttonText)
+        container.appendChild(button)
+    }
+    button.addEventListener('click', () => {
+        message.innerHTML = ''
+        button.remove()
+        startGame()
+    })
 }
 
 export const DB = [

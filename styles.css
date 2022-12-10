@@ -6,6 +6,16 @@
     margin: auto;
     text-align: center;
 }
+
+.logo{
+    margin-bottom: 4em;
+}
+
+.question{
+    border: 1px solid black;
+    border-radius: 1em;
+}
+
 .answers{
     display: flex;
     flex-direction: column;
@@ -29,12 +39,12 @@
 
 @media (min-width: 400px) {
     .container{
-        margin-top: 20%;
+        margin-top: 10em;
         max-width: 700px;
     }
     .answers {
         display: grid;
-        grid-template-columns: repeat(2, auto);
-        align-content:center;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
     }
 }
