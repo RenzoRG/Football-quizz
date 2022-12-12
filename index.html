@@ -6,24 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizz Game</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0" />
     <script src="/main.js" type="module" defer></script>
 </head>
 <body>
     <section class="container">
         <div class="logo">
-            <img src="" alt="">
-            <h1>Football Quizz</h1>
+            <h1>
+                <span class="material-symbols-outlined">
+                sports_soccer
+                </span>
+                Football Quizz
+            </h1>
         </div>
         <section class="question">
             <p>Kdo vyhrál MS 2006?</p>
         </section>
         <ul class="answers">
-            <li class="answer" value="Brazilie">Brazílie</li>
-            <li class="answer" value="Francie">Francie</li>
-            <li class="answer" value="Italie">Itálie</li>
-            <li class="answer" value="Portugalsko">Portugalsko</li>
+            <li class="answer A">Brazílie</li>
+            <li class="answer B">Francie</li>
+            <li class="answer C">Itálie</li>
+            <li class="answer D">Portugalsko</li>
         </ul>
-        <div class="message"></div>
+        <div class="winning-message" id="winningMessage">
+            <span class="message"></span>
+            <button id="restartButton">Restart</button>
+        </div>
     </section>
 </body>
 </html>

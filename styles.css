@@ -1,3 +1,15 @@
+:root{
+    --clr-mainTheme: rgb(239, 245, 245);
+    --clr-main1: rgb(214, 228, 229);
+    --clr-second1: rgb(73, 113, 116);
+    --clr-second2: rgb(235, 100, 64);
+    
+}
+body{
+    font-family: Verdana, Arial, Helvetica, sans-serif;;
+    background-color: var(--clr-mainTheme);
+    color: var(--clr-second1);
+}
 .container{
     width: 80%;
     min-width: 200px;
@@ -9,10 +21,15 @@
 
 .logo{
     margin-bottom: 4em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .question{
-    border: 1px solid black;
+    border: 1px solid var(--clr-second2);
+    background-color: var(--clr-main1);
+    font-weight: bold;
     border-radius: 1em;
 }
 
@@ -22,22 +39,24 @@
     align-items: stretch;
     padding: 0;
     gap: 1rem;
-    /*grid-template-columns: repeat(2, 1fr);*/
-    /*justify-content: space-around;*/
 }
 
 .answer{
-    border: 1px solid black;
+    border: 1px solid var(--clr-second2);
+    background-color: var(--clr-main1);
     border-radius: 1em;
     list-style: none;
     padding: 0.5rem;
+    transition: 350ms;
 }
 
 .answer:hover{
     border: 1px solid gold;
+    font-weight: bold;
+    box-shadow: 8px 8px 2px 1px var(--clr-second1);
 }
 
-@media (min-width: 400px) {
+@media (min-width: 40em) {
     .container{
         margin-top: 10em;
         max-width: 700px;
@@ -47,4 +66,37 @@
         width: 100%;
         grid-template-columns: 1fr 1fr;
     }
+}
+
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0, .9);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    flex-direction: column;
+}
+
+.winning-message button {
+    font-size: 3rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: .25em .5em;
+    cursor: pointer;
+}
+
+.winning-message button:hover {
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+
+.winning-message.show {
+    display: flex;
 }
