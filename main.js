@@ -70,15 +70,21 @@ const answerDElement = document.querySelector('.D')
 startGame()
 
 function startGame() {
-    populateQuizz()
+    const randomQuestion = DB[randomInt(DB.length)]
+    questionElement.textContent = `${randomQuestion.question}`
+    answerAElement.textContent = `${randomQuestion.A}`
+    answerBElement.textContent = `${randomQuestion.B}`
+    answerCElement.textContent = `${randomQuestion.C}`
+    answerDElement.textContent = `${randomQuestion.D}`
     answers.forEach(answer => {
-        answer.addEventListener('click', pickedChoice)
+        answer.addEventListener('click', (e) => {
+            pickedChoice(e.target.innerText, randomQuestion['correct answer'])
+        })
     })
 }
 
-function pickedChoice(e) {
-    const answer = e.target.innerText
-    message.innerHTML = answer == "Itálie" ? 'You are correct!' : 'You are wrong!'
+function pickedChoice(answer, correctAnswer) {
+    message.innerHTML = answer == correctAnswer ? 'You are correct!' : 'You are wrong!'
 
     let button = document.querySelector('button')
     if(button == null) {
@@ -96,26 +102,4 @@ function pickedChoice(e) {
 
 function randomInt(max) {
     return Math.floor(Math.random() * max)
-}
-
-function populateQuizz() {
-    const randomQuestion = DB[randomInt(DB.length)]
-    const question = randomQuestion.question
-    const correctQuestion = randomQuestion["correct answer"]
-    const answerA = document.createTextNode(`${randomQuestion.A}`)
-    const answerB = document.createTextNode(`${randomQuestion.B}`)
-    const answerC = document.createTextNode(`${randomQuestion.C}`)
-    const answerD = document.createTextNode(`${randomQuestion.D}`)
-
-    questionElement.textContent = ""
-    answerAElement.textContent = ""
-    answerBElement.textContent = ""
-    answerCElement.textContent = ""
-    answerDElement.textContent = ""
-
-    questionElement.appendChild(question)
-    answerAElement.appendChild(answerA)
-    answerBElement.appendChild(answerB)
-    answerCElement.appendChild(answerC)
-    answerDElement.appendChild(answerD)
 }
