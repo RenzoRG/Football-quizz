@@ -67,25 +67,32 @@ const answerBElement = document.querySelector('.B')
 const answerCElement = document.querySelector('.C')
 const answerDElement = document.querySelector('.D')
 
+let randomQuestion
+
 startGame()
 
 function startGame() {
-    const randomQuestion = DB[randomInt(DB.length)]
+    randomQuestion = DB[Math.floor(Math.random() * DB.length)]
     questionElement.textContent = `${randomQuestion.question}`
-    answerAElement.textContent = `${randomQuestion.A}`
-    answerBElement.textContent = `${randomQuestion.B}`
-    answerCElement.textContent = `${randomQuestion.C}`
-    answerDElement.textContent = `${randomQuestion.D}`
+    answerAElement.textContent = `A: ${randomQuestion.A}`
+    answerBElement.textContent = `B: ${randomQuestion.B}`
+    answerCElement.textContent = `C: ${randomQuestion.C}`
+    answerDElement.textContent = `D: ${randomQuestion.D}`
+    winningMessageElement.classList.remove('show')
     answers.forEach(answer => {
-        answer.addEventListener('click', (e) => {
-            pickedChoice(e.target.innerText, randomQuestion['correct answer'])
+        answer.removeEventListener('click', handleClick)
+        answer.addEventListener('click', handleClick)
         })
-    })
+    
 }
 
-function pickedChoice(answer, correctAnswer) {
-    message.innerHTML = answer == correctAnswer ? 'You are correct!' : 'You are wrong!'
+function handleClick(e) {
+    const answer = e.target.innerTEXT
+    message.innerHTML = answer === randomQuestion['correct answer'] ? 'You are correct!' : 'You are wrong!'
+    restartButton()
+}
 
+function restartButton() {
     let button = document.querySelector('button')
     if(button == null) {
         button = document.createElement('button')
@@ -94,12 +101,5 @@ function pickedChoice(answer, correctAnswer) {
         container.appendChild(button)
     }
     winningMessageElement.classList.add('show')
-    button.addEventListener('click', () => {
-        winningMessageElement.classList.remove('show')
-        startGame()
-    })
-}
-
-function randomInt(max) {
-    return Math.floor(Math.random() * max)
+    button.addEventListener('click', startGame)
 }
