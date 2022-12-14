@@ -73,6 +73,7 @@ startGame()
 
 function startGame() {
     randomQuestion = DB[Math.floor(Math.random() * DB.length)]
+    console.log(randomQuestion)
     questionElement.textContent = `${randomQuestion.question}`
     answerAElement.textContent = `A: ${randomQuestion.A}`
     answerBElement.textContent = `B: ${randomQuestion.B}`
@@ -87,8 +88,10 @@ function startGame() {
 }
 
 function handleClick(e) {
-    const answer = e.target.innerTEXT
-    message.innerHTML = answer === randomQuestion['correct answer'] ? 'You are correct!' : 'You are wrong!'
+    const answer = e.target.innerText.slice(3)
+    console.log(answer)
+    console.log(randomQuestion["correct answer"])
+    message.innerHTML = answer == randomQuestion["correct answer"] ? 'You are correct!' : 'You are wrong!'
     restartButton()
 }
 
