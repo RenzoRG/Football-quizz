@@ -30,6 +30,7 @@ body{
     border: 1px solid var(--clr-second2);
     background-color: var(--clr-main1);
     font-weight: bold;
+    padding: 0.5rem;
     border-radius: 1em;
 }
 
