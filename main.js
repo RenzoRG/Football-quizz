@@ -31,7 +31,7 @@ function startGame() {
 
 function handleClick(e) {
     const answer = e.target.innerText.slice(3)
-    message.innerHTML = answer == randomQuestion["correct answer"] ? 'You are correct!' : 'You are wrong!'
+    message.innerHTML = answer == randomQuestion["correct answer"] ? 'Správná odpověď!' : 'Špatná odpověď!'
     restartButton()
 }
 
