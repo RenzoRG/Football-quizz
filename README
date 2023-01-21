@@ -1,4 +1,11 @@
-A simple game project to test my basic knowledge of JS, HTML & CSS.
+#Football quiz game
+___
+#Main information
+___
+This a simple game project to test my basic knowledge of JS, HTML & CSS.
 The game is basically "Who Wants to Be a Millionaire" but with questions from the football world cup history, minus the money ladder, asking the audience etc.
+The game is hosted on Netlify and the live preview is [here](https://football-quizz.netlify.app/).
+#More technical info & and future of the project
+___
+So right now the games DB (the questions and answers) is an array of objects in a separated file, in the future i will move the DB to MongoDB. Also i plan to use React and some CSS framework for the frontside of the page.
 
-Link for the live preview: https://football-quizz.netlify.app/
